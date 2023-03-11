@@ -39,6 +39,8 @@ export default {
         this.rules[0].value === this.rules[1].value
       ) {
         console.log("right");
+        this.$refs[`card-${this.rules[0].index}`][0].onDisableFlip();
+        this.$refs[`card-${this.rules[1].index}`][0].onDisableFlip();
         this.rules = [];
       } else if (
         this.rules.length === 2 &&

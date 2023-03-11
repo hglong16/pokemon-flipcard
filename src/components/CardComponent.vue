@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="card">
+  <div class="card" :class="{ 'disabled-flip': isDisabled }">
     <div
       class="card__inner"
       :class="{ 'is-flipped': isFlipped }"
@@ -42,6 +42,7 @@ export default {
   data() {
     return {
       isFlipped: false,
+      isDisabled: false,
     };
   },
   methods: {
@@ -52,9 +53,11 @@ export default {
         this.$emit("onFlip", this.card);
       }
     },
-
     onFlipBack() {
       this.isFlipped = false;
+    },
+    onDisableFlip() {
+      this.isDisabled = true;
     },
   },
 };
@@ -66,6 +69,10 @@ export default {
   margin-bottom: 1rem;
   height: 120px;
   width: 90px;
+}
+
+.disabled-flip {
+  pointer-events: none;
 }
 
 .card__inner {
