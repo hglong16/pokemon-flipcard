@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
   build:
-    name: Test
+    name: Build And Deploy
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -23,4 +23,8 @@ jobs:
         uses: borales/actions-yarn@v4
         with:
           cmd: build # will run `yarn build:prod` command
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: dist # The folder the action should deploy.
      
