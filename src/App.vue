@@ -1,26 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <HelloScreen
+    v-if="statusMatch === 'default'"
+    @startGame="onHandleBeforeStart($event)"
+  />
+  <GameScreen
+    v-if="statusMatch === 'match'"
+    :cardContext="config.cardContext"
+  />
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import GameScreen from "./components/GameScreen.vue";
+import HelloScreen from "./components/HelloScreen.vue";
+import createArray from "./utils/createArray";
 export default {
   name: "App",
-  components: {
-    HelloWorld,
+  components: { HelloScreen, GameScreen },
+  data() {
+    return {
+      statusMatch: "default",
+      config: {
+        size: 16,
+        variant: "pokemons",
+        cardContext: [],
+      },
+    };
+  },
+  methods: {
+    onHandleBeforeStart(size) {
+      this.config.size = size;
+      this.config.cardContext = createArray({ length: size / 2 });
+      this.config.startedAt = new Date().getTime();
+      this.statusMatch = "match";
+    },
   },
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
