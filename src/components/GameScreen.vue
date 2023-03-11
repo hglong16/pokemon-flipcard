@@ -42,6 +42,12 @@ export default {
         this.$refs[`card-${this.rules[0].index}`][0].onDisableFlip();
         this.$refs[`card-${this.rules[1].index}`][0].onDisableFlip();
         this.rules = [];
+        const disabledEl = document.querySelectorAll(".disabled-flip");
+        if (disabledEl && disabledEl.length === this.cardContext.length - 2) {
+          setTimeout(() => {
+            this.$emit("onFinish");
+          }, 500);
+        }
       } else if (
         this.rules.length === 2 &&
         this.rules[0].value !== this.rules[1].value
