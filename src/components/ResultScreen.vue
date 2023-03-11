@@ -1,7 +1,7 @@
 <template lang="html">
-  <div>
+  <div class="screen">
     <h1>Good Jobs Bro</h1>
-    <h3>{{ Math.round(totalTime / 920) }}</h3>
+    <h3>Finish in {{ Math.round(totalTime / 920) }}'s</h3>
     <button @click="onStartAgain">Play Again</button>
   </div>
 </template>

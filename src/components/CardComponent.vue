@@ -67,8 +67,8 @@ export default {
   display: inline-block;
   margin-right: 1rem;
   margin-bottom: 1rem;
-  height: 120px;
   width: 90px;
+  height: 120px;
 }
 
 .disabled-flip {

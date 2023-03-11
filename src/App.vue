@@ -11,8 +11,8 @@
 
   <ResultScreen
     v-if="statusMatch === 'result'"
-    totalTime="totalTime"
-    @onStartAgain="statusMatch = 'default'"
+    :totalTime="totalTime"
+    @startAgain="statusMatch = 'default'"
   />
 </template>
 
@@ -51,4 +51,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped></style>
