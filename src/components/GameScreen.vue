@@ -43,7 +43,8 @@ export default {
 
       if (
         this.rules.length === 2 &&
-        this.rules[0].value === this.rules[1].value
+        this.rules[0].value === this.rules[1].value && 
+        this.rules[0].index !== this.rules[1].index
       ) {
         console.log("right");
         this.$refs[`card-${this.rules[0].index}`][0].onDisableFlip();
@@ -57,7 +58,8 @@ export default {
         }
       } else if (
         this.rules.length === 2 &&
-        this.rules[0].value !== this.rules[1].value
+        this.rules[0].value !== this.rules[1].value || 
+        this.rules[0].index === this.rules[1].index
       ) {
         console.log("wrong");
         let cloneRules = [...this.rules];
