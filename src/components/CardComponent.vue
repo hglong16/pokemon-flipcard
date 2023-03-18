@@ -48,7 +48,7 @@ export default {
   methods: {
     onToggleFlipCard() {
       if (this.rules.length > 2) return false;
-      this.isFlipped = !this.isFlipped;
+      this.isFlipped = true;
       if (this.isFlipped) {
         this.$emit("onFlip", this.card);
       }
